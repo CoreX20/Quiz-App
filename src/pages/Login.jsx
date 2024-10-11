@@ -6,12 +6,12 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = ({ setUser }) => {
+  const handleLogin = () => {
     if (username.trim() === "") {
       alert("Username harus diisi");
       return;
     }
-
+    localStorage.setItem("user", JSON.stringify({ username }));
     navigate("/quiz");
   };
 

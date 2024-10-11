@@ -8,7 +8,7 @@ const Question = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(60);
+  const [timeLeft, setTimeLeft] = useState(30);
   const [showResult, setShowResult] = useState(false);
   const totalAnswered = correctAnswers + incorrectAnswers;
 
@@ -73,7 +73,7 @@ const Question = () => {
 
   const handleRestartQuiz = () => {
     localStorage.removeItem("quizProgress");
-    setTimeLeft(60);
+    setTimeLeft(30);
     setQuestions([]);
     setCurrentQuestionIndex(0);
     setSelectedAnswer(null);
@@ -91,7 +91,7 @@ const Question = () => {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [timeLeft]);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-200">
